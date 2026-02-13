@@ -59,7 +59,7 @@ def is_snowflake(model: str) -> bool:
     model = model.lower()
     return "snowflake" in model
 
-
+from sentence_transformers import SentenceTransformer
 class APIWrapper(object):
     def __init__(self, runner):
         self.runner = runner
@@ -70,6 +70,9 @@ class APIWrapper(object):
         # Use routers as instance variables (for fallback models)
         self.router = getattr(runner, "router", None)
         self.embedding_router = getattr(runner, "embedding_router", None)
+
+        self.embedding_ibm_model = None 
+
         # Store fallback configs and router cache from runner
         self.fallback_models_config = getattr(runner, "fallback_models_config", [])
         self.runner_router_cache = getattr(runner, "_router_cache", {})
@@ -151,6 +154,10 @@ class APIWrapper(object):
             The cache size is set to 1000. Adjust this value based on your memory
             constraints and usage patterns.
         """
+        if self.embedding_ibm_model is None:
+            self.embedding_ibm_model = SentenceTransformer(model)
+
+
         # Create a unique key for the cache
         key = hashlib.md5(f"{model}_{input}".encode()).hexdigest()
         input = json.loads(input)
@@ -188,7 +195,29 @@ class APIWrapper(object):
                     if self.embedding_router
                     else embedding
                 )
-                result = embedding_fn(model=model, input=input, **extra_kwargs)
+                
+                if self.embedding_ibm_model:
+                    encoded = self.embedding_ibm_model.encode(input)
+                    data = [{"object": "embedding", "index": i, "embedding": encoded[i, :]} for i in range(encoded.shape[0])] 
+                    result = {
+                        "object": "list",
+                        # "data": [
+                        #     {
+                        #     "object": "embedding",
+                        #     "index": 0,
+                        #     "embedding": encoded
+                        #     }
+                        # ],
+                        "data": data,
+                        "model": model,
+                        "usage": {
+                            "prompt_tokens": 5,
+                            "total_tokens": 5
+                        }
+                    }
+                else:
+                    result = embedding_fn(model=model, input=input, **extra_kwargs)
+
                 # Cache the result
                 c.set(key, result)
 
@@ -892,6 +921,11 @@ Your main result must be sent via send_output. The updated_scratchpad is only fo
                 raise e
         elif tools is not None:
             try:
+                if "ibm" in model:
+                    extra_litellm_kwargs['api_key'] = os.environ.get("IBM_LITELLM_API_KEY")
+                    extra_litellm_kwargs['api_base'] = "https://ete-litellm.ai-models.vpc-int.res.ibm.com"
+                    model = model.replace("ibm/", "")
+                
                 response = completion_fn(
                     model=model,
                     messages=messages_with_system_prompt,

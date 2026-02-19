@@ -29,7 +29,10 @@ operations = [
             "schema": {
                 "medication": "list[str]"
             }
-        }
+        },
+        validate=None,
+        limit=None,
+        num_calibration_docs=10
     ),
     # Unnest to create separate items for each medication
     UnnestOp(
@@ -64,7 +67,12 @@ operations = [
         Determine the best resolved medication name for this group of entries. The resolved
         name should be a standardized, widely recognized medication name that best represents
         all matched entries.
-        """
+        """,
+        blocking_target_recall=None,
+        embedding_batch_size=None,
+        compare_batch_size=None,
+        limit_comparisons=None,
+        timeout=None
     )
     ,
     # Summarize side effects and uses for each medication
@@ -98,7 +106,10 @@ operations = [
                 "side_effects": "str",
                 "uses": "str"
             }
-        }
+        },
+        fold_batch_size=None,
+        merge_batch_size=None,
+        limit=None
     )
 ]
 

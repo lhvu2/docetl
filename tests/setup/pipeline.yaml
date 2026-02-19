@@ -1,0 +1,91 @@
+datasets:
+  transcripts:
+    path: medical_transcripts.json
+    type: file
+
+default_model: gpt-4o-mini
+
+system_prompt: # This is optional, but recommended for better performance. It is applied to all operations in the pipeline.
+  dataset_description: a collection of transcripts of doctor visits
+  persona: a medical practitioner analyzing patient symptoms and reactions to medications
+
+operations:
+  - name: extract_medications
+    type: map
+    output:
+      schema:
+        medication: list[str]
+    prompt: |
+      Analyze the following transcript of a conversation between a doctor and a patient:
+      {{ input.src }}
+      Extract and list all medications mentioned in the transcript.
+      If no medications are mentioned, return an empty list.
+
+  - name: unnest_medications
+    type: unnest
+    unnest_key: medication
+
+  - name: resolve_medications
+    type: resolve
+    blocking_keys:
+      - medication
+    blocking_threshold: 0.6162
+    comparison_prompt: |
+      Compare the following two medication entries:
+      Entry 1: {{ input1.medication }}
+      Entry 2: {{ input2.medication }}
+      Are these medications likely to be the same or closely related?
+    embedding_model: text-embedding-3-small
+    output:
+      schema:
+        medication: str
+    resolution_prompt: |
+      Given the following matched medication entries:
+      {% for entry in inputs %}
+      Entry {{ loop.index }}: {{ entry.medication }}
+      {% endfor %}
+      Determine the best resolved medication name for this group of entries. The resolved
+      name should be a standardized, widely recognized medication name that best represents
+      all matched entries.
+
+  - name: summarize_prescriptions
+    type: reduce
+    reduce_key:
+      - medication
+    output:
+      schema:
+        side_effects: str
+        uses: str
+    prompt: |
+      Here are some transcripts of conversations between a doctor and a patient:
+
+      {% for value in inputs %}
+      Transcript {{ loop.index }}:
+      {{ value.src }}
+      {% endfor %}
+
+      For the medication {{ reduce_key }}, please provide the following information based on all the transcripts above:
+
+      1. Side Effects: Summarize all mentioned side effects of {{ reduce_key }}.
+      2. Therapeutic Uses: Explain the medical conditions or symptoms for which {{ reduce_key }} was prescribed or recommended.
+
+      Ensure your summary:
+      - Is based solely on information from the provided transcripts
+      - Focuses only on {{ reduce_key }}, not other medications
+      - Includes relevant details from all transcripts
+      - Is clear and concise
+      - Includes quotes from the transcripts
+
+pipeline:
+  steps:
+    - name: medical_info_extraction
+      input: transcripts
+      operations:
+        - extract_medications
+        - unnest_medications
+        - resolve_medications
+        - summarize_prescriptions
+  output:
+    type: file
+    path: medication_summaries.json
+    intermediate_dir: intermediate_results

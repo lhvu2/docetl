@@ -1,0 +1,44 @@
+[
+  {
+    "side_effects": "**Side Effects of Sertraline:**\n- Sleep disturbances: The patient reported \"trouble sleeping sometimes\" while taking Sertraline as prescribed.",
+    "uses": "**Therapeutic Uses of Sertraline:**\n- Mood improvement: The patient reported that Sertraline is \"helping with my mood,\" indicating it was prescribed for mood-related conditions, likely depression or a related mood disorder.\n\n**Number of Patients:**\n- 1 patient (Mrs. Patel)\n\n**Summary:**\nBased on Transcript 1, Sertraline was prescribed to Mrs. Patel for mood management. While the medication is effective in improving her mood, the patient has experienced trouble sleeping as a side effect. Only one patient's experience with Sertraline is documented in the provided transcripts.",
+    "medication": "Sertraline",
+    "_counts_prereduce_summarize_prescriptions": 1
+  },
+  {
+    "side_effects": "Based on the provided transcript, the following side effects of Hydrochlorothiazide were mentioned:\n\n1. **Dehydration**: The patient reported, \"I've been feeling dehydrated...\"\n\nSummary of Side Effects:\n- Dehydration\n\nTherapeutic Uses:\nHydrochlorothiazide was prescribed to treat the patient's swelling/edema. The patient noted, \"My swelling is down,\" indicating that the medication was effective in reducing fluid retention and swelling.\n\nNumber of Patients:\n1 patient (Mrs. Wilson)\n\nAdditional Notes:\nBased on this single transcript, the medication demonstrated therapeutic benefit in reducing swelling while producing a side effect of dehydration. The patient's condition appears to involve fluid retention/edema, which is a common indication for thiazide diuretics like Hydrochlorothiazide.",
+    "uses": "1. Side Effects of Hydrochlorothiazide:\n   - Dehydration (reported by patient: \"I've been feeling dehydrated\")\n\n2. Therapeutic Uses of Hydrochlorothiazide:\n   - Treatment of edema/swelling (patient reported: \"My swelling is down\")\n\n3. Number of Patients: 1 patient (Mrs. Wilson)",
+    "medication": "Hydrochlorothiazide",
+    "_counts_prereduce_summarize_prescriptions": 1
+  },
+  {
+    "side_effects": "Based on the provided transcript, the following side effects of Atorvastatin were mentioned:\n\n1. **Muscle Soreness**: The patient reported \"I've noticed some muscle soreness lately\" after starting Atorvastatin last month.\n\nThis is the only side effect explicitly documented in the provided transcript.",
+    "uses": "Based on the provided transcript, specific therapeutic uses or medical conditions for which Atorvastatin was prescribed are not explicitly stated. However, the context indicates that the patient was started on Atorvastatin, which is typically prescribed for cholesterol management, but no specific diagnosis or condition is mentioned in this transcript. The doctor only references that the patient \"started taking Atorvastatin last month\" without elaborating on the reason for prescription.\n\n**Number of Patients**: 1 patient (Ms. Lee)\n\nThe analysis is limited to the single transcript provided, which contains minimal information about the therapeutic indication.",
+    "medication": "Atorvastatin",
+    "_counts_prereduce_summarize_prescriptions": 1
+  },
+  {
+    "uses": "Based on the provided transcript, here is the analysis for Levothyroxine:\n\n**1. Side Effects:**\nThe patient reported experiencing heart palpitations after starting Levothyroxine. The patient stated: \"A little, but I've also had some heart palpitations...\"\n\n**2. Therapeutic Uses:**\nLevothyroxine was prescribed to improve energy levels. The doctor asked: \"Since starting Levothyroxine, have you noticed improvements in your energy levels?\" This indicates the medication was intended to address fatigue or low energy levels, which are typical symptoms of hypothyroidism for which Levothyroxine is commonly prescribed.\n\n**3. Number of Patients:**\n1 patient (Ms. Nguyen) is represented in the provided transcript(s).\n\n**Summary:**\nThis single transcript documents one patient's experience with Levothyroxine, showing a modest improvement in energy levels but with the notable side effect of heart palpitations.",
+    "side_effects": "Heart palpitations",
+    "medication": "Levothyroxine",
+    "_counts_prereduce_summarize_prescriptions": 1
+  },
+  {
+    "side_effects": "Based on the provided transcript, the following side effect of Lisinopril was mentioned:\n\n1. **Dry Cough**: The patient reported \"I've been experiencing some dry cough\" after starting Lisinopril.\n\nThis is the only side effect documented in the available transcript.",
+    "uses": "Based on the provided transcript, Lisinopril was prescribed for the following therapeutic use:\n\n1. **Blood Pressure Management/Hypertension**: The patient stated that \"my blood pressure has improved\" since starting the medication, indicating that Lisinopril was prescribed to treat elevated blood pressure.\n\n**Number of Patients: 1**\n\nThe dataset contains one patient (Mrs. Johnson) who discussed her experience with Lisinopril in Transcript 1.",
+    "medication": "Lisinopril",
+    "_counts_prereduce_summarize_prescriptions": 1
+  },
+  {
+    "side_effects": "Mild sore throat. The patient reported: \"My breathing is better, but I've developed a mild sore throat...\"",
+    "uses": "The asthma controller medication was prescribed to manage asthma and improve breathing. The patient noted therapeutic benefit: \"My breathing is better\" after starting the medication. This indicates the medication is being used for asthma control and symptom management. Patient count: 1",
+    "medication": "asthma controller medication",
+    "_counts_prereduce_summarize_prescriptions": 1
+  },
+  {
+    "side_effects": "**Side Effects of Fluoxetine:**\n\nBased on the provided transcript, the following side effect was mentioned:\n\n- **Nausea**: The patient reported feeling \"nauseous in the mornings\" while taking Fluoxetine at the new dose.\n\nThis is the only side effect explicitly documented in the available transcripts.",
+    "uses": "**Therapeutic Uses of Fluoxetine:**\n\nBased on the provided transcript, Fluoxetine was prescribed for the following condition:\n\n- **Anxiety**: The patient stated that the medication is \"helping with my anxiety,\" indicating that Fluoxetine was prescribed to treat anxiety symptoms.\n\n**Number of Patients:**\n\n**1 patient** - Ms. Hernandez\n\nThe available transcript contains documentation from one patient visit discussing her experience with Fluoxetine therapy.",
+    "medication": "Fluoxetine",
+    "_counts_prereduce_summarize_prescriptions": 1
+  }
+]

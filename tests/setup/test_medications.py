@@ -9,6 +9,7 @@ print(current_dir)
 dataset = Dataset(
     type="file",
     path=join(current_dir, "medical_transcripts.json")
+    #path=join(current_dir, "medical_transcripts_v1.json")
 )
 
 # Define operations
@@ -22,6 +23,7 @@ operations = [
         {{ input.src }}
         Extract and list all medications mentioned in the transcript.
         If no medications are mentioned, return an empty list.
+        Note that, focus on the female and male patients only.
         """,
         output={
             "schema": {
@@ -82,6 +84,7 @@ operations = [
 
         1. Side Effects: Summarize all mentioned side effects of {{ reduce_key }}.
         2. Therapeutic Uses: Explain the medical conditions or symptoms for which {{ reduce_key }} was prescribed or recommended.
+        3. The number of the patients.
 
         Ensure your summary:
         - Is based solely on information from the provided transcripts
@@ -115,6 +118,7 @@ step = PipelineStep(
 output = PipelineOutput(
     type="file",
     path=join(current_dir, "medication_summaries.json"),
+    #path=join(current_dir, "medication_summaries_v1.json"),
     intermediate_dir=join(current_dir, "intermediate_results")
 )
 

@@ -1,0 +1,14 @@
+[
+  {
+    "side_effects": "Based on the provided transcript, the following side effect of Lisinopril was mentioned:\n\n1. **Dry Cough**: The patient reported \"I've been experiencing some dry cough\" after starting Lisinopril.\n\nThis is the only side effect documented in the available transcript.",
+    "uses": "Based on the provided transcript, Lisinopril was prescribed for the following therapeutic use:\n\n1. **Blood Pressure Management/Hypertension**: The patient stated that \"my blood pressure has improved\" since starting the medication, indicating that Lisinopril was prescribed to treat elevated blood pressure.\n\n**Number of Patients: 1**\n\nThe dataset contains one patient (Mrs. Johnson) who discussed her experience with Lisinopril in Transcript 1.",
+    "medication": "Lisinopril",
+    "_counts_prereduce_summarize_prescriptions": 1
+  },
+  {
+    "side_effects": "Based on the provided transcript, the patient mentions experiencing side effects from Metformin, but the specific details are not elaborated upon in the transcript excerpt. The patient states: \"I've been taking it regularly, but I'm concerned about some side effects I've been experiencing...\" However, the actual side effects are not specified in the given conversation fragment.",
+    "uses": "Therapeutic Uses for Metformin:\nAccording to the transcript, the doctor references a \"follow-up on your Metformin prescription,\" indicating that Metformin was prescribed to Mr. Smith for management of an underlying condition. While the specific medical condition is not explicitly stated in the provided transcript excerpt, Metformin is typically prescribed for type 2 diabetes management.\n\nNumber of Patients: 1 patient (Mr. Smith)\n\nSummary:\nThe transcript contains one patient encounter regarding Metformin. The patient mentions concerns about side effects but does not provide specific details in the excerpt provided. The doctor is conducting a follow-up visit to monitor the patient's response to the medication, as indicated by: \"I see you're here for a follow-up on your Metformin prescription.\"",
+    "medication": "Metformin",
+    "_counts_prereduce_summarize_prescriptions": 1
+  }
+]

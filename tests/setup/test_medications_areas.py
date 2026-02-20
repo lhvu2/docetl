@@ -54,9 +54,10 @@ operations = [
         """,
         #embedding_model="text-embedding-3-small",
         #embedding_model="all-MiniLM-L6-v2",
-        #embedding_model="all-mpnet-base-v2",
+        embedding_model="all-mpnet-base-v2",
         #embedding_model="BAAI/bge-base-en-v1.5",
-        embedding_model="intfloat/multilingual-e5-large-instruct",
+        #embedding_model="intfloat/multilingual-e5-large-instruct",
+        #embedding_model="models/e5-large-v2",
         output={
             "schema": {
                 "medication": "str"
